@@ -3,10 +3,11 @@ import css from "./ContactList.module.css";
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
+import { filter,contactsList } from "../../redux/contactsSlice";
 
 export default function ContactsList() {
-    const value = useSelector(state => state.contacts.contacts.items);
-    const nameToSearch = useSelector(state => state.filters.filters.name);
+    const value = useSelector(contactsList);
+    const nameToSearch = useSelector(filter);
     const [contacts, setContacts] = useState(value);
   
     useEffect(() => {
