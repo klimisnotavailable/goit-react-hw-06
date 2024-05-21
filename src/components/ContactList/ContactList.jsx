@@ -1,6 +1,5 @@
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
-import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from "react";
 import { filter,contactsList } from "../../redux/contactsSlice";
@@ -19,7 +18,7 @@ export default function ContactsList() {
     });
 
     const contactsMarkup = filteredContacts.map((contact) => {
-        return <li key={nanoid()} className={css.contactItem}><Contact contact={contact} ></Contact></li>
+        return <li key={crypto.randomUUID()} className={css.contactItem}><Contact contact={contact} ></Contact></li>
     });
     return <ul>{contactsMarkup}</ul>;
 }
